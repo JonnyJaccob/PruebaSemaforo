@@ -34,8 +34,13 @@ namespace PruebaSemaforo
 			Font fuente_DS_DIGIT = new Font(CargarFuente(Properties.Resources.DS_DIGIT), 40, FontStyle.Regular);
 
 			lblContador.Font = fuente_DS_DIGIT;
+			rdbNVerde.Checked = rdbSVerde.Checked = true;
+			v1 = 17;
+			v2 = 3;
+			v3 = 3;
+			v4 = 2;
 		}
-		static System.Windows.Forms.Timer timer = new System.Windows.Forms.Timer(); // Declarar un temporizador para contar los segundos
+		static Timer timer = new Timer(); // Declarar un temporizador para contar los segundos
 		static double segundos = 0; // Declarar la variable para el contador de segundos
 
 		private void btnSalir_Click(object sender, EventArgs e)
@@ -60,7 +65,7 @@ namespace PruebaSemaforo
 			timer.Start(); // Iniciar el temporizador
 			segundos = 1; // Reiniciar el contador de segundos
 			fase = 1;
-			semaforo = new Semaforo();
+			semaforo = new Semaforo(v1,v2,v3,v4);
 			FormatoContador("0",Color.Green); // Actualizar la etiqueta con el valor inicial
 		}
 
@@ -87,7 +92,7 @@ namespace PruebaSemaforo
 			int valor = 1;
 			try
 			{
-				valor = semaforo.SemaforoTiempo(segundos);
+				valor = semaforo.CicloSemaforo(segundos);
 			}
 			catch (Exception ex)
 			{
@@ -217,39 +222,7 @@ namespace PruebaSemaforo
 		}
 		private bool _detener = false;
 		int x = 1;
-		//private void btnInter_Click(object sender, EventArgs e)
-		//{
-		//	// Reiniciar variable de detener
-		//	_detener = false;
-
-		//	while (!_detener)
-		//	{
-		//		// Aquí va el código a repetir
-		//		if(x==1)
-		//		{
-		//			x = 2;
-		//			lblContador.Text = "00";
-		//			lblContador.ForeColor = Color.Yellow;
-		//			ApagarSemaforos(true);
-		//			ApagarSemaforos(false);
-		//		}else
-		//		{
-		//			lblContador.Text = "00";
-		//			lblContador.ForeColor = Color.Gray;
-
-		//			rdbNAmbar.Checked =
-		//			rdbSAmbar.Checked =
-		//			rdbEAmbar.Checked =
-		//			rdbWAmbar.Checked = true;
-		//			x = 1;
-
-		//		}
-		//		Thread.Sleep(1000); // Pausa de 1000 milisegundos
-
-		//		// Permitir que la aplicación siga respondiendo a eventos
-		//		Application.DoEvents();
-		//	}
-		//}
+		
 		private Timer _timer;
 		private void btnInter_Click(object sender, EventArgs e)
 		{
@@ -296,6 +269,28 @@ namespace PruebaSemaforo
 				_timer = null;
 
 				return;
+			}
+		}
+		public int v1, v2, v3, v4;
+		
+		private void btnCambiarTiempo_Click(object sender, EventArgs e)
+		{
+			using (var formularioSecundario = new FomularioSecundario())
+			{
+				if (formularioSecundario.ShowDialog() == DialogResult.OK)
+				{
+					int valor1 = formularioSecundario.verde1;
+					int valor2 = formularioSecundario.verde2;
+					int valor3 = formularioSecundario.ambar;
+					int valor4 = formularioSecundario.rojo;
+
+					// aquí puedes hacer lo que quieras con los valores
+					v1 = valor1;
+					v2 = valor2;
+					v3 = valor3;
+					v4 = valor4;
+					MessageBox.Show("Se cambiaron los valores");
+				}
 			}
 		}
 	}

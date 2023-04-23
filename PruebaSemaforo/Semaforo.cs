@@ -19,6 +19,16 @@ namespace PruebaSemaforo
 			blnEste_Oeste = false;
 			Fase = 1;
 		}
+		public Semaforo(int x,int y, int z, int w)
+		{
+			FaseFijoVerde = x;
+			FaseParpadeoVerde = y;
+			FijoAmarillo = z;
+			FijoRojo = w;
+			blnNorte_Sur = true;
+			blnEste_Oeste = false;
+			Fase = 1;
+		}
 		private static int FaseFijoVerde;
 		private static int FaseParpadeoVerde;
 		private static int FijoAmarillo;
@@ -28,73 +38,89 @@ namespace PruebaSemaforo
 		public int Fase;
 		public Color colorLetrero = Color.Green;
 
-		public int CicloSemaforo(double cuenta)
+		public int CicloSemaforo(double Contador)
 		{
-			int entero = (int)cuenta;
-			double decimalOriginal = cuenta - entero;
-			int decimalParte = (int)Math.Round(decimalOriginal * 10);
+			switch (Fase)
+			{
+				case 1: // verde
+					if (Contador < FaseFijoVerde+0.5)
+					{
+						colorLetrero = Color.Green;
+					}
+					else
+					{
+						Fase = 2;
+						Contador = 1;
+					}
+					break;
 
-			if (entero < FaseFijoVerde && Fase == 1)
-			{
-				colorLetrero = Color.Green;
+				case 2: // parpadeo verde
+					if (Contador < FaseParpadeoVerde+0.5)
+					{
+						if (Contador % 2 == 0)
+						{
+							colorLetrero = Color.Green;
+						}
+						else
+						{
+							
+							if (Math.Floor(Contador) == Contador)
+							{
+								colorLetrero = Color.Green;
+							}
+							else
+							{
+								colorLetrero = Color.Gray;
+							}
+						}
+					}
+					else
+					{
+						Fase = 3;
+						colorLetrero = Color.Yellow;
+						Contador = 1;
+					}
+					break;
+
+				case 3: // amarillo
+					if (Contador < FijoAmarillo+0.5)
+					{
+						colorLetrero = Color.Yellow;
+					}
+					else
+					{
+						Fase = 4;
+						colorLetrero = Color.Red;
+						Contador = 1;
+					}
+					break;
+
+				case 4: // rojo
+					if (Contador < FijoRojo+0.5)
+					{
+						colorLetrero = Color.Red;
+					}
+					else
+					{
+						Fase = 1;
+						colorLetrero = Color.Green;
+						Contador = 1;
+						if (blnNorte_Sur)
+						{
+							blnNorte_Sur = false;
+							blnEste_Oeste = true;
+						}
+						else
+						{
+							blnEste_Oeste = false;
+							blnNorte_Sur = true;
+						}
+					}
+					break;
 			}
-			else
-			if (Fase == 1 && cuenta > 5)
-			{
-				Fase = 2;
-				entero = 1;
-				cuenta = 1;
-				colorLetrero = Color.Green;
-			}
-			else
-			if (entero < FaseParpadeoVerde && Fase == 2)
-			{
-				if (decimalParte == 5)
-				{
-					colorLetrero = Color.Gray;
-				}
-				else
-				{
-					colorLetrero = Color.Green;
-				}
-			}
-			else
-			if (Fase == 2 && cuenta > 3)
-			{
-				Fase = 3;
-				entero = 1;
-				cuenta = 1;
-				colorLetrero = Color.Green;
-			}
-			else
-			if (entero < FijoAmarillo && Fase == 3)
-			{
-				colorLetrero = Color.Yellow;
-			}
-			else
-			if (Fase == 3 && cuenta >= 3)
-			{
-				Fase = 4;
-				entero = 1;
-				cuenta = 1;
-				colorLetrero = Color.Yellow;
-			}
-			else
-			if (entero < 2 && Fase == 4)
-			{
-				colorLetrero = Color.Red;
-			}
-			else
-			if (Fase == 4 && cuenta > FijoRojo + 0.5)
-			{
-				Fase = 1;
-				entero = 1;
-				cuenta = 1;
-				colorLetrero = Color.Green;
-			}
-			return entero;
-			
+			return (int)Contador;
 		}
+
 		public int SemaforoTiempo(double numero)
 		{
 			switch (numero)

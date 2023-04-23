@@ -51,6 +51,7 @@
 			this.rdbNRojo = new System.Windows.Forms.RadioButton();
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
 			this.lblContador = new System.Windows.Forms.Label();
+			this.btnCambiarTiempo = new System.Windows.Forms.Button();
 			this.groupBox1.SuspendLayout();
 			this.groupBox6.SuspendLayout();
 			this.groupBox5.SuspendLayout();
@@ -62,6 +63,7 @@
 			// groupBox1
 			// 
 			this.groupBox1.BackColor = System.Drawing.SystemColors.ControlDark;
+			this.groupBox1.Controls.Add(this.btnCambiarTiempo);
 			this.groupBox1.Controls.Add(this.btnSalir);
 			this.groupBox1.Controls.Add(this.btnInter);
 			this.groupBox1.Controls.Add(this.btnDetener);
@@ -73,14 +75,14 @@
 			this.groupBox1.Controls.Add(this.groupBox2);
 			this.groupBox1.Location = new System.Drawing.Point(13, 13);
 			this.groupBox1.Name = "groupBox1";
-			this.groupBox1.Size = new System.Drawing.Size(745, 267);
+			this.groupBox1.Size = new System.Drawing.Size(745, 297);
 			this.groupBox1.TabIndex = 0;
 			this.groupBox1.TabStop = false;
 			this.groupBox1.Text = "groupBox1";
 			// 
 			// btnSalir
 			// 
-			this.btnSalir.Location = new System.Drawing.Point(609, 232);
+			this.btnSalir.Location = new System.Drawing.Point(609, 261);
 			this.btnSalir.Name = "btnSalir";
 			this.btnSalir.Size = new System.Drawing.Size(75, 23);
 			this.btnSalir.TabIndex = 9;
@@ -269,6 +271,7 @@
 			// rdbNVerde
 			// 
 			this.rdbNVerde.AutoSize = true;
+			this.rdbNVerde.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
 			this.rdbNVerde.Checked = true;
 			this.rdbNVerde.Location = new System.Drawing.Point(122, 20);
 			this.rdbNVerde.Name = "rdbNVerde";
@@ -285,7 +288,6 @@
 			this.rdbNAmbar.Name = "rdbNAmbar";
 			this.rdbNAmbar.Size = new System.Drawing.Size(55, 17);
 			this.rdbNAmbar.TabIndex = 1;
-			this.rdbNAmbar.TabStop = true;
 			this.rdbNAmbar.Text = "Ambar";
 			this.rdbNAmbar.UseVisualStyleBackColor = true;
 			// 
@@ -296,7 +298,6 @@
 			this.rdbNRojo.Name = "rdbNRojo";
 			this.rdbNRojo.Size = new System.Drawing.Size(47, 17);
 			this.rdbNRojo.TabIndex = 0;
-			this.rdbNRojo.TabStop = true;
 			this.rdbNRojo.Text = "Rojo";
 			this.rdbNRojo.UseVisualStyleBackColor = true;
 			// 
@@ -327,11 +328,21 @@
 			this.lblContador.Text = "00";
 			this.lblContador.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
 			// 
+			// btnCambiarTiempo
+			// 
+			this.btnCambiarTiempo.Location = new System.Drawing.Point(598, 232);
+			this.btnCambiarTiempo.Name = "btnCambiarTiempo";
+			this.btnCambiarTiempo.Size = new System.Drawing.Size(115, 23);
+			this.btnCambiarTiempo.TabIndex = 10;
+			this.btnCambiarTiempo.Text = "Cambiar tiempo";
+			this.btnCambiarTiempo.UseVisualStyleBackColor = true;
+			this.btnCambiarTiempo.Click += new System.EventHandler(this.btnCambiarTiempo_Click);
+			// 
 			// Form1
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(800, 309);
+			this.ClientSize = new System.Drawing.Size(800, 322);
 			this.Controls.Add(this.groupBox1);
 			this.Name = "Form1";
 			this.Text = "Form1";
@@ -376,6 +387,7 @@
 		private System.Windows.Forms.RadioButton rdbNRojo;
 		private System.Windows.Forms.GroupBox groupBox2;
 		private System.Windows.Forms.Label lblContador;
+		private System.Windows.Forms.Button btnCambiarTiempo;
 	}
 }
 

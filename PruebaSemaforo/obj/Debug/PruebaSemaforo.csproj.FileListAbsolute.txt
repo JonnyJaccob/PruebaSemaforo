@@ -8,3 +8,4 @@ C:\Users\jacco\OneDrive\Documentos\Repositorios\PruebaSemaforo\PruebaSemaforo\ob
 C:\Users\jacco\OneDrive\Documentos\Repositorios\PruebaSemaforo\PruebaSemaforo\obj\Debug\PruebaSemaforo.csproj.CoreCompileInputs.cache
 C:\Users\jacco\OneDrive\Documentos\Repositorios\PruebaSemaforo\PruebaSemaforo\obj\Debug\PruebaSemaforo.exe
 C:\Users\jacco\OneDrive\Documentos\Repositorios\PruebaSemaforo\PruebaSemaforo\obj\Debug\PruebaSemaforo.pdb
+C:\Users\jacco\OneDrive\Documentos\Repositorios\PruebaSemaforo\PruebaSemaforo\obj\Debug\PruebaSemaforo.FomularioSecundario.resources
