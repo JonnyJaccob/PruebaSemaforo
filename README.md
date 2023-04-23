@@ -9,3 +9,5 @@ Programa de prueba de funcionamiento de un semaforo
 
 ## Modo intermitente
 Parpadea cada segundo el amarillo y el display  
+
+![Semaforo](Fotos\Semaforo1.png)
