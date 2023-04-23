@@ -96,6 +96,7 @@
 			this.btnInter.TabIndex = 8;
 			this.btnInter.Text = "Intermitente";
 			this.btnInter.UseVisualStyleBackColor = true;
+			this.btnInter.Click += new System.EventHandler(this.btnInter_Click);
 			// 
 			// btnDetener
 			// 
@@ -132,7 +133,7 @@
 			// rdbEVerde
 			// 
 			this.rdbEVerde.AutoSize = true;
-			this.rdbEVerde.Location = new System.Drawing.Point(9, 66);
+			this.rdbEVerde.Location = new System.Drawing.Point(7, 66);
 			this.rdbEVerde.Name = "rdbEVerde";
 			this.rdbEVerde.Size = new System.Drawing.Size(53, 17);
 			this.rdbEVerde.TabIndex = 2;
@@ -154,7 +155,7 @@
 			// rdbERojo
 			// 
 			this.rdbERojo.AutoSize = true;
-			this.rdbERojo.Location = new System.Drawing.Point(7, 20);
+			this.rdbERojo.Location = new System.Drawing.Point(7, 19);
 			this.rdbERojo.Name = "rdbERojo";
 			this.rdbERojo.Size = new System.Drawing.Size(47, 17);
 			this.rdbERojo.TabIndex = 0;
@@ -177,7 +178,7 @@
 			// rdbWVerde
 			// 
 			this.rdbWVerde.AutoSize = true;
-			this.rdbWVerde.Location = new System.Drawing.Point(9, 66);
+			this.rdbWVerde.Location = new System.Drawing.Point(7, 20);
 			this.rdbWVerde.Name = "rdbWVerde";
 			this.rdbWVerde.Size = new System.Drawing.Size(53, 17);
 			this.rdbWVerde.TabIndex = 2;
@@ -199,7 +200,7 @@
 			// rdbWRojo
 			// 
 			this.rdbWRojo.AutoSize = true;
-			this.rdbWRojo.Location = new System.Drawing.Point(7, 20);
+			this.rdbWRojo.Location = new System.Drawing.Point(7, 66);
 			this.rdbWRojo.Name = "rdbWRojo";
 			this.rdbWRojo.Size = new System.Drawing.Size(47, 17);
 			this.rdbWRojo.TabIndex = 0;
@@ -222,6 +223,7 @@
 			// rdbSVerde
 			// 
 			this.rdbSVerde.AutoSize = true;
+			this.rdbSVerde.Checked = true;
 			this.rdbSVerde.Location = new System.Drawing.Point(7, 19);
 			this.rdbSVerde.Name = "rdbSVerde";
 			this.rdbSVerde.Size = new System.Drawing.Size(53, 17);
@@ -267,6 +269,7 @@
 			// rdbNVerde
 			// 
 			this.rdbNVerde.AutoSize = true;
+			this.rdbNVerde.Checked = true;
 			this.rdbNVerde.Location = new System.Drawing.Point(122, 20);
 			this.rdbNVerde.Name = "rdbNVerde";
 			this.rdbNVerde.Size = new System.Drawing.Size(53, 17);
