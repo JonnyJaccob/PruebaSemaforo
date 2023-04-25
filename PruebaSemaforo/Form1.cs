@@ -101,6 +101,14 @@ namespace PruebaSemaforo
 				segundos = 1;
 				timer.Start();
 			}
+			if(semaforo.blnNorte_Sur)
+			{
+				rdbERojo.Checked = rdbWRojo.Checked = true;
+			}
+			else
+			{
+				rdbNRojo.Checked = rdbSRojo.Checked = true;
+			}
 			switch (semaforo.Fase)
 			{
 				case 1 when semaforo.blnNorte_Sur:
@@ -108,6 +116,7 @@ namespace PruebaSemaforo
 					rdbSVerde.Checked = true;
 					rdbNAmbar.Checked = rdbNRojo.Checked = false;
 					rdbSAmbar.Checked = rdbSRojo.Checked = false;
+					rdbERojo.Checked = rdbWRojo.Checked = true;
 					break;
 				case 2 when semaforo.blnNorte_Sur:
 					if(semaforo.colorLetrero != Color.Gray)
@@ -119,6 +128,7 @@ namespace PruebaSemaforo
 					}
 					rdbNAmbar.Checked = rdbSAmbar.Checked = false;
 					rdbNRojo.Checked = rdbSRojo.Checked = false;
+					rdbERojo.Checked = rdbWRojo.Checked = true;
 					break;
 				case 3 when semaforo.blnNorte_Sur:
 					rdbNVerde.Checked = rdbSVerde.Checked = false;
@@ -253,6 +263,7 @@ namespace PruebaSemaforo
 		private Timer _timer;
 		private void btnInter_Click(object sender, EventArgs e)
 		{
+			timer.Stop();
 			// Reiniciar variable de detener
 			_detener = false;
 
